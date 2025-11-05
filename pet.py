@@ -59,10 +59,11 @@ class Pet:
         self.name = name
         self.__happiness_level = happiness_level
     
-    def play(self, amount):
-        Game = input("What game is your pet playing?: ")
-        print(f"{self.name} is playing {Game}"!)
-        self.__happiness_level +=10
+    def play(self, amount: int):
+        self.__happiness_level = 0
+        print(f"Sean is playing and gained {amount} happiness.")
+Sean = Pet("Sean", 0)
+print(Sean.__dict__)
 
 
     
