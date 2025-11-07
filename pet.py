@@ -80,7 +80,7 @@ print(Sean.__dict__) """
 Sean = Pet("Sean", 0)
 Sean.play("with a frisbee", 10) """
 
-class Hero:
+""" class Hero:
     def __init__(self, name, money, inventory):
         self.name = name
         self.__money__ = money
@@ -93,4 +93,25 @@ Jillian = Hero("Jillian", 150, ["Potion"])
 print(Jillian.__dict__)
 
 Jillian.buy({"title": "Sword", "atk": 34})
-print(Jillian.__dict__)
+print(Jillian.__dict__) """
+
+class User:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+
+    def display_info(self):
+        return f"User: {self.name}, Email: {self.email}"
+Daniel = User("Daniel", "danielc901@gmail.com")
+print(f"Lucas's Parent: {Daniel.__dict__}")
+
+class Student(User):
+    def __init__(self, name, email, student_id):
+        super().__init__(name, email)
+        self.student_id = student_id
+
+    def display_info(self):
+        return f"Student: {self.name}, Student ID: {self.student_id}"
+Lucas = Student("Lucas", "lucasc110@nycstudents.net", "213009190")
+Lucas = super(Daniel)
+print(f"Lucas: {Lucas.__dict__}")
