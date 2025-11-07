@@ -95,7 +95,12 @@ print(Jillian.__dict__)
 Jillian.buy({"title": "Sword", "atk": 34})
 print(Jillian.__dict__) """
 
-class User:
+class Hero:
+    def __init__(self, name, money, inventory):
+        self.name = name
+        self.__money = money
+
+""" class User:
     def __init__(self, name, email):
         self.name = name
         self.email = email
@@ -113,5 +118,4 @@ class Student(User):
     def display_info(self):
         return f"Student: {self.name}, Student ID: {self.student_id}"
 Lucas = Student("Lucas", "lucasc110@nycstudents.net", "213009190")
-Lucas = super(Daniel)
-print(f"Lucas: {Lucas.__dict__}")
+print(f"Lucas: {Lucas.__dict__}") """
