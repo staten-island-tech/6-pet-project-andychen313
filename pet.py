@@ -95,20 +95,26 @@ print(Jillian.__dict__)
 Jillian.buy({"title": "Sword", "atk": 34})
 print(Jillian.__dict__) """
 
-class Hero:
+""" class Hero:
     def __init__(self, name, money, inventory):
         self.name = name
-        self.__money = money
+        self.__money__ = money
+        self.inventory = inventory
 
-""" class User:
+    def buy(self, item, cost):
+        self.inventory.append(item)
+        self.__money__ -= cost
+        print(f"Jillian bought a(n) {item} and now has {self.__money__}.")
+Jillian = Hero("Jillian", 150, ["Potion"])
+Jillian.buy("sword", 20) """
+
+class User:
     def __init__(self, name, email):
         self.name = name
         self.email = email
 
     def display_info(self):
         return f"User: {self.name}, Email: {self.email}"
-Daniel = User("Daniel", "danielc901@gmail.com")
-print(f"Lucas's Parent: {Daniel.__dict__}")
 
 class Student(User):
     def __init__(self, name, email, student_id):
@@ -117,5 +123,28 @@ class Student(User):
 
     def display_info(self):
         return f"Student: {self.name}, Student ID: {self.student_id}"
-Lucas = Student("Lucas", "lucasc110@nycstudents.net", "213009190")
-print(f"Lucas: {Lucas.__dict__}") """
+
+class Teacher(User):
+    def __init__(self, name, email, subject):
+        super().__init__(name, email)
+        self.subject = subject
+
+    def display_info(self):
+        return f"Teacher: {self.name}, Email: {self.email}"
+    
+class Administrator(User):
+    def __init__(self, name, email, role):
+        super().__init__(name, email)
+        self.role = role
+
+    def display_info(self):
+        return f"Administrator: {self.name}, Email: {self.email}"
+    
+    
+student = Student("Alice", "alice@example.com", "S12345")
+teacher = Teacher("Mr. Smith", "smith@example.com", "Mathematics")
+administrator = Administrator("Ms. Johnson", "johnson@example.com", "Principal")
+
+print(student.display_info())
+print(teacher.display_info())
+print(administrator.display_info())
