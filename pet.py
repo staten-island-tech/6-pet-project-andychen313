@@ -148,3 +148,28 @@ administrator = Administrator("Ms. Johnson", "johnson@example.com", "Principal")
 print(student.display_info())
 print(teacher.display_info())
 print(administrator.display_info())
+
+class Administrator(User):
+    def __init__(self, name, email, role):
+        super().__init__(name, email)
+        self.role = role
+
+    def display_info(self):
+        return f"Administrator: {self.name}, Email: {self.email}, Role: {self.role}"
+    
+    def manage_system(self):
+        return f"{self.name} ({self.role}) is managing the system."
+admin = Administrator("Ms. Johnson", "johnson@example.com", "Principal")
+print(admin.manage_system())
+
+class Teacher(User):
+    def __init__(self, name, email, subject):
+        super().__init__(name, email)
+        self.subject = subject
+    
+    def display_info(self):
+        base_info = super().display_info()
+        return f"{base_info}, Subject: {self.subject}"
+    
+my_teacher = Teacher("Mr. Brown", "brown@example.com", "Science")
+print(my_teacher.display_info())
