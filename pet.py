@@ -1,3 +1,5 @@
+#Lessons
+
 """ class Hero:
     def __init__(self, name, money, inventory):
         self.name = name
@@ -108,7 +110,7 @@ print(Jillian.__dict__) """
 Jillian = Hero("Jillian", 150, ["Potion"])
 Jillian.buy("sword", 20) """
 
-class User:
+""" class User:
     def __init__(self, name, email):
         self.name = name
         self.email = email
@@ -172,4 +174,14 @@ class Teacher(User):
         return f"{base_info}, Subject: {self.subject}"
     
 my_teacher = Teacher("Mr. Brown", "brown@example.com", "Science")
-print(my_teacher.display_info())
+print(my_teacher.display_info()) """
+
+#Pet Project
+
+class User:
+    def __init__(self, name, rank):
+        self.name = name
+        self.rank = rank
+
+    def display_info(self):
+        return f"User: {self.name}, Rank: {self.rank}"
