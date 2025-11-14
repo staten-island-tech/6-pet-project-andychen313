@@ -185,3 +185,32 @@ class User:
 
     def display_info(self):
         return f"User: {self.name}, Rank: {self.rank}"
+    
+class Hunter(User):
+    def __init__(self, name, rank, type):
+        super().__init__(name, rank)
+        self.type = type
+    def display_info(self):
+        return f"Hunter: {self.name}, Rank: {self.rank}, Type: {self.type}"
+    
+class Pet(User):
+    def __init__(self, name, rank, type):
+        super().__init__(name, rank)
+        self.type = type
+    def display_info(self):
+        return f"Shadow: {self.name}, Rank: {self.rank}, Type: {self.type}"
+hunter = Hunter("Sung Jin-Woo", "S-Rank", "Shadow Monarch")
+pet = Pet("Igros", "A-Rank", "Shadow Soldier")
+print(hunter.display_info())
+print(pet.display_info())
+
+class ShadowPet(Pet):
+    def __init__(self, name, level):
+        self.name = name
+        self.level = level
+
+    def active(self, activity, level_increase):
+        self.level += level_increase
+        print(f"{self.name} is {activity} and currently has level {self.level}.")
+shadow_pet = ShadowPet("Igros", 10)
+shadow_pet.active("battling", 5)
