@@ -178,7 +178,7 @@ print(my_teacher.display_info()) """
 
 #Pet Project
 
-class User:
+""" class User:
     def __init__(self, name, rank):
         self.name = name
         self.rank = rank
@@ -213,4 +213,8 @@ class ShadowPet(Pet):
         self.level += level_increase
         print(f"{self.name} is {activity} and currently has level {self.level}.")
 shadow_pet = ShadowPet("Igros", 10)
-shadow_pet.active("battling", 5)
+shadow_pet.active("battling", 5) """
+
+class User:
+    def user():
+        Name = input
