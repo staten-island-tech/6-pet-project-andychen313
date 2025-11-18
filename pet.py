@@ -215,6 +215,7 @@ class ShadowPet(Pet):
 shadow_pet = ShadowPet("Igros", 10)
 shadow_pet.active("battling", 5) """
 
-class User:
+class Pet:
     def user():
-        Name = input
+        name = input("What is the name of your pet?: ")
+        
