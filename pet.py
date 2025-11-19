@@ -218,4 +218,6 @@ shadow_pet.active("battling", 5) """
 class Pet:
     def user():
         name = input("What is the name of your pet?: ")
+        level = 1
+        
         
