@@ -215,7 +215,7 @@ class ShadowPet(Pet):
 shadow_pet = ShadowPet("Igros", 10)
 shadow_pet.active("battling", 5) """
 
-class Pet:
+""" class Pet:
     def __init__(self, name):
         self.name = name
         self.hunger = 50
@@ -259,7 +259,89 @@ class Pet:
         print(f"{self.name} - Hunger: {self.hunger}, Happiness: {self.happiness}, Cleanliness: {self.cleanliness}")
     
     def user_play(self, interaction):
-        if interaction == 
+        name = input("What is your pet's name?: ")
+        pet_name = name
+        self.name = pet_name
+        print(f"1. Feed {self.name}!")
+        print(f"2. Play with {self.name}!")
+        print(f"3. Clean {self.name}!")
+        interaction = int(input("Based on the number that accomodates the interaction, what do you want your pet to do?: "))
+        if type(interaction) != int:
+            print(f"Error! Please enter the number that accomodates the interaction with {self.name}!")
+        if interaction not in [1, 2, 3]:
+            print("Error! Please enter an appropriate number in the range between 1-3!")
+        if interaction == 1:
+            pet_name = Pet() """
+
+class Pet_Base:
+    def __init__(self, name):
+        self.name = name
+        self.hunger = 50
+        self.happiness = 50
+        self.cleanliness = 50
+
+class feed(Pet_Base): 
+    def feed(self):
+        self.hunger += 10
+        if self.hunger > 100:
+            self.hunger = 100
+        if self.hunger < 0:
+            self.hunger = 0
+        if self.hunger >=70:
+            print(f"{self.name} is quite full right now!")
+        elif self.hunger <= 30:
+            print(f"{self.name} is quite hungry! Feed him/her!")
+
+class play(Pet_Base):  
+    def play(self):
+        self.happiness +=10
+        if self.happiness > 100:
+            self.happiness = 100
+        if self.happiness < 0:
+            self.happiness = 0
+        if self.happiness >= 70:
+            print(f"{self.name} is quite happy right now!")
+        elif self.happiness <=30:
+            print(f"{self.name} is quite sad! Play with him/her!")
+
+class clean(Pet_Base):
+    def clean(self):
+        self.cleanliness +=10
+        if self.cleanliness > 100:
+            self.cleanliness = 100
+        if self.cleanliness < 0:
+            self.cleanliness = 0
+        if self.cleanliness >=70:
+            print(f"{self.name} is quite clean right now!")
+        elif self.cleanliness <= 30:
+            print(f"{self.name} is quite dirty! Clean him/her!")
+
+class status(Pet_Base):
+
+    def status(self):
+        print(f"{self.name} - Hunger: {self.hunger}, Happiness: {self.happiness}, Cleanliness: {self.cleanliness}")
+
+class user_play(Pet_Base):
+
+    def user_play(self):
+        name = input("What is your pet's name?: ")
+        print(f"1. Feed {name}!")
+        print(f"2. Play with {name}!")
+        print(f"3. Clean {name}!")
+        interaction = int(input("Based on the number that accomodates the interaction, what do you want your pet to do?: "))
+        if type(interaction) != int:
+            print(f"Error! Please enter the number that accomodates the interaction with {self.name}!")
+        if interaction not in [1, 2, 3]:
+            print("Error! Please enter an appropriate number in the range between 1-3!")
+        if interaction == 1:
+            feed()
+        if interaction == 2:
+            play(self)
+        if interaction == 3:
+            clean(self)
+    user_play()
+
+        
     
 
 
