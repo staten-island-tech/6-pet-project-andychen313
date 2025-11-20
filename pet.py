@@ -216,8 +216,52 @@ shadow_pet = ShadowPet("Igros", 10)
 shadow_pet.active("battling", 5) """
 
 class Pet:
-    def user():
-        name = input("What is the name of your pet?: ")
-        level = 1
+    def __init__(self, name):
+        self.name = name
+        self.hunger = 50
+        self.happiness = 50
+        self.cleanliness = 50
+    
+    def feed(self):
+        self.hunger += 10
+        if self.hunger > 100:
+            self.hunger = 100
+        if self.hunger < 0:
+            self.hunger = 0
+        if self.hunger >=70:
+            print(f"{self.name} is quite full right now!")
+        elif self.hunger <= 30:
+            print(f"{self.name} is quite hungry! Feed him/her!")
+    
+    def play(self):
+        self.happiness +=10
+        if self.happiness > 100:
+            self.happiness = 100
+        if self.happiness < 0:
+            self.happiness = 0
+        if self.happiness >= 70:
+            print(f"{self.name} is quite happy right now!")
+        elif self.happiness <=30:
+            print(f"{self.name} is quite sad! Play with him/her!")
+    
+    def clean(self):
+        self.cleanliness +=10
+        if self.cleanliness > 100:
+            self.cleanliness = 100
+        if self.cleanliness < 0:
+            self.cleanliness = 0
+        if self.cleanliness >=70:
+            print(f"{self.name} is quite clean right now!")
+        elif self.cleanliness <= 30:
+            print(f"{self.name} is quite dirty! Clean him/her!")
+    
+    def status(self):
+        print(f"{self.name} - Hunger: {self.hunger}, Happiness: {self.happiness}, Cleanliness: {self.cleanliness}")
+    
+    def user_play(self, interaction):
+        if interaction == 
+    
+
+
         
         

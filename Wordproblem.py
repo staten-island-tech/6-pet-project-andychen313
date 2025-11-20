@@ -1,12 +1,10 @@
 def portal_login_check(email, password):
-    if type(email) != str:
-        return "Error! Invalid Email! Email must be a string!"
+    if type(email) != str or type(password) != str:
+        return "Error! Invalid Email or Password! Both email and password must be strings!"
     email = email.strip()
+    password = password.strip()
     if "@" not in email:
         return "Error! Invalid Email! Email must include '@'"
-    if type(password) != str:
-        return "Error! Invalid Password! Password must be a string!"
-    password = password.strip()
     if len(password) < 8:
         return "Error! Invalid Password! Password must include at least 8 characters!"
     digit_found = False
@@ -27,4 +25,4 @@ def portal_login_check(email, password):
         "email": email,
         "password": password
     }
-print(portal_login_check("testemail123@gmail.com", "Nopass18"))
+print(portal_login_check("testemail123@gmail.com", "Yespass001"))
