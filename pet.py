@@ -273,14 +273,26 @@ shadow_pet.active("battling", 5) """
         if interaction == 1:
             pet_name = Pet() """
 
-class Pet_Base:
+class Pet:
     def __init__(self, name):
         self.name = name
         self.hunger = 50
         self.happiness = 50
         self.cleanliness = 50
+    
+    def stat_decrease_over_time(self):
+        self.hunger -= 5
+        self.happiness -= 5
+        self.cleanliness -= 5
 
-class feed(Pet_Base): 
+        if self.hunger < 0:
+            self.hunger = 0
+        if self.happiness < 0:
+            self.happiness = 0
+        if self.cleanliness < 0:
+            self.cleanliness = 0
+
+ 
     def feed(self):
         self.hunger += 10
         if self.hunger > 100:
@@ -291,8 +303,7 @@ class feed(Pet_Base):
             print(f"{self.name} is quite full right now!")
         elif self.hunger <= 30:
             print(f"{self.name} is quite hungry! Feed him/her!")
-
-class play(Pet_Base):  
+  
     def play(self):
         self.happiness +=10
         if self.happiness > 100:
@@ -304,7 +315,6 @@ class play(Pet_Base):
         elif self.happiness <=30:
             print(f"{self.name} is quite sad! Play with him/her!")
 
-class clean(Pet_Base):
     def clean(self):
         self.cleanliness +=10
         if self.cleanliness > 100:
@@ -316,30 +326,52 @@ class clean(Pet_Base):
         elif self.cleanliness <= 30:
             print(f"{self.name} is quite dirty! Clean him/her!")
 
-class status(Pet_Base):
-
     def status(self):
         print(f"{self.name} - Hunger: {self.hunger}, Happiness: {self.happiness}, Cleanliness: {self.cleanliness}")
 
-class user_play(Pet_Base):
+def user_play():
+    
+    pet_name = input("What is your pet's name?: ").strip()
+    pet = Pet(pet_name)
 
-    def user_play(self):
-        name = input("What is your pet's name?: ")
-        print(f"1. Feed {name}!")
-        print(f"2. Play with {name}!")
-        print(f"3. Clean {name}!")
-        interaction = int(input("Based on the number that accomodates the interaction, what do you want your pet to do?: "))
-        if type(interaction) != int:
-            print(f"Error! Please enter the number that accomodates the interaction with {self.name}!")
-        if interaction not in [1, 2, 3]:
-            print("Error! Please enter an appropriate number in the range between 1-3!")
-        if interaction == 1:
-            feed()
-        if interaction == 2:
-            play(self)
-        if interaction == 3:
-            clean(self)
-    user_play()
+    while True:
+        print(f"1. Feed {pet_name}!")
+        print(f"2. Play with {pet_name}!")
+        print(f"3. Clean {pet_name}!")
+        print(f"4. Exit")
+
+        user_interaction = input("Based on the number that accomodates the interaction, what do you want to do with your pet?: ")
+        print()
+
+        if not user_interaction.isdigit():
+            print("Error! Please enter the NUMBER that accomodates the interaction with your pet! Do not enter letters or special characters!")
+            continue
+
+        user_interaction = int(user_interaction)
+        
+        if user_interaction not in [1, 2, 3, 4]:
+            print("Error! Please enter an appropriate number in the range between 1-4!")
+            continue
+
+        if user_interaction == 1:
+            print(f"You just fed {pet_name}!")
+            pet.feed()
+            pet.stat_decrease_over_time()
+            pet.status()
+        elif user_interaction == 2:
+            print(f"You just played with {pet_name}!")
+            pet.play()
+            pet.stat_decrease_over_time()
+            pet.status()
+        elif user_interaction == 3:
+            print(f"You just cleaned {pet_name}!")
+            pet.clean()
+            pet.stat_decrease_over_time()
+            pet.status()
+        elif user_interaction == 4:
+            print(f"Exiting! Goodbye!")
+            break
+user_play()
 
         
     
