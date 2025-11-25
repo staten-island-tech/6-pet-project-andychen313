@@ -352,7 +352,7 @@ def user_play():
         if user_interaction not in [1, 2, 3, 4]:
             print("Error! Please enter an appropriate number in the range between 1-4!")
             continue
-
+        
         if user_interaction == 1:
             print(f"You just fed {pet_name}!")
             pet.feed()
